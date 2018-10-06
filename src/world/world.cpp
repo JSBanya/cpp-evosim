@@ -121,11 +121,14 @@ void World::tick() {
 			aliveCells->remove(node);
 			deadCells->pushBack(node);
 			node = next;
-		} else if(c->hasChild()) {
-			createChild(c);
-		} else {
-			node = node->getNext();
+			continue;
 		}
+
+		if(c->hasChild()) {
+			createChild(c);
+		}
+
+		node = node->getNext();
 	}	
 }
 
