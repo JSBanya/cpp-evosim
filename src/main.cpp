@@ -96,7 +96,7 @@ int initGLFW() {
 }
 
 void scrollCallback(GLFWwindow* window, double xpos, double ypos) {
-    const float SCROLL_SPEED = 0.05f;
+    const float SCROLL_SPEED = 0.5f;
     if(ypos < 0) {
         main_camera->addPos(0.0f, 0.0f, -1.0f * SCROLL_SPEED);
     } else if(ypos > 0) {

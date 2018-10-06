@@ -4,9 +4,11 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <stdlib.h>
 #include "../gfx/model.h"
 #include "../gfx/shader.h"
 #include "../controls/camera.h"
+#include "../utils/cellList.h"
 #include "cell.h"
 
 class World {
@@ -16,6 +18,7 @@ public:
 	void renderCells();
 	void renderWorldBox();
 	void tick();
+	void createChild(Cell*);
 private:
 	Camera* camera;
 	Model* cellModel;
@@ -28,7 +31,8 @@ private:
 	float xBoundLower, xBoundUpper, yBoundLower, yBoundUpper;
 	int maxCells;
 
-	std::vector<Cell*> cells;
+	CellList* aliveCells;
+	CellList* deadCells;
 };
 
 #endif
